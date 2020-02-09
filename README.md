@@ -1,6 +1,6 @@
 # Java-DB
-Java DB Fundamentals module. January 2020 Software University (https://softuni.bg)
-MySQL - January 2020<br/>
+Java DB Fundamentals module. January 2020 Software University (https://softuni.bg)<br/>
+[MySQL - January 2020](https://github.com/Deianov/Java-DB/tree/master/MySQL) <br/>
 Spring Data - February 2020<br/>
 
 # MySQL - January 2020
