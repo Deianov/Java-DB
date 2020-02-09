@@ -1,50 +1,53 @@
 # Java-DB
 Java DB Fundamentals module. January 2020 Software University (https://softuni.bg)
+MySQL - January 2020<br/>
+Spring Data - February 2020<br/>
 
-# MySQL January - February 2020
-Data Definition and Datatypes
-	• Structured Query Language
-	• Basic SQL Queries
-	• Data Types in MySQL Server
-	• Data Management
-	• Table Customization
+# MySQL - January 2020
+Course Topics<br/>
+Data Definition and Datatypes<br/>
+* Structured Query Language<br/>
+* Basic SQL Queries<br/>
+* Data Types in MySQL Server<br/>
+* Data Management<br/>
+* Table Customization<br/>
 
-Basic CRUD
-	• Query Basics
-	• Retrieving Data
-	• Writing Data in Tables
-	• Modifying Existing Records
+Basic CRUD<br/>
+* Query Basics<br/>
+* Retrieving Data<br/>
+* Writing Data in Tables<br/>
+* Modifying Existing Records<br/>
 
-Built-in Functions
-	• Functions in MySQL Server
-	• String Functions
-	• Arithmetical Operators and Numeric Functions
-	• Date Functions
-	• Wildcards
+Built-in Functions<br/>
+* Functions in MySQL Server<br/>
+* String Functions<br/>
+* Arithmetical Operators and Numeric Functions<br/>
+* Date Functions<br/>
+* Wildcards<br/>
 
-Data Aggregation
-	• Grouping – consolidating data based on criteria
-	• Aggregate Function – COUNT, SUM, MAX, MIN, AVG …
-	• Having – using predicates while grouping
+Data Aggregation<br/>
+* Grouping – consolidating data based on criteria<br/>
+* Aggregate Function – COUNT, SUM, MAX, MIN, AVG …<br/>
+* Having – using predicates while grouping<br/>
 
-Table Relations
-	• Database design
-	• Table Relation
-	• Retrieving Related Data
-	• Cascade Operations
-	• E/R Diagrams
+Table Relations<br/>
+* Database design<br/>
+* Table Relation<br/>
+* Retrieving Related Data<br/>
+* Cascade Operations<br/>
+* E/R Diagrams<br/>
 
-Subqueries and JOINs
-	• JOINS – Gathering Data From Multiple Tables
-	• Subqueries – Query Manipulation on Multiple Levels
-	• Indices – Clustered and Non-Clustered Indices
+Subqueries and JOINs<br/>
+* JOINS – Gathering Data From Multiple Tables<br/>
+* Subqueries – Query Manipulation on Multiple Levels<br/>
+* Indices – Clustered and Non-Clustered Indices<br/>
 
-Database Programmability and Transactions
-	• User-Defined Functions
-	• Stored Procedures
-	• Transactions
-	• Triggers
+Database Programmability and Transactions<br/>
+* User-Defined Functions<br/>
+* Stored Procedures<br/>
+* Transactions<br/>
+* Triggers<br/>
 
-Exam preparation
-Exam
+Exam preparation<br/>
+Exam<br/>
 
