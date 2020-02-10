@@ -39,12 +39,12 @@ Table Relations, [Lab](MySQL/05.MySQL-Table-Relations-Lab.sql) | [Exercises](MyS
 + Cascade Operations
 + E/R Diagrams
 
-Subqueries and JOINs, [Lab](MySQL/06.MySQL-Joins-Subqueries-and-Indices-Lab.sql) | [Exercises](MySQL/06.MySQL-Joins-Subqueries-and-Indices-Exercises.sql)
+Subqueries and JOINs, [Lab](MySQL/06.MySQL-Joins-Subqueries_and_Indices-Lab.sql) | [Exercises](MySQL/06.MySQL-Joins-Subqueries-and-Indices-Exercise.sql)
 + JOINS – Gathering Data From Multiple Tables
 + Subqueries – Query Manipulation on Multiple Levels
 + Indices – Clustered and Non-Clustered Indices
 
-Database Programmability and Transactions, [Lab](MySQL/07.MySQL-Database-Programmability-Lab.sql) | [Exercises](MySQL/07.MySQL-Database-Programmability-Exercises.sql)
+Database Programmability and Transactions, [Lab](MySQL/07.MySQL-Database-Programmability-Lab.sql) | [Exercises](MySQL/07.MySQL-Database-Programmability-Exercise.sql)
 + User-Defined Functions
 + Stored Procedures
 + Transactions
