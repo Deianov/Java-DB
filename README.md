@@ -1,7 +1,8 @@
-## Java-DB
-Java DB Fundamentals module. January 2020 Software University (https://softuni.bg)  
-[MySQL - January 2020](/MySQL)  
-[Spring Data - February 2020](/Spring_Data)
+## Java DB Fundamentals module
+January 2020 Software University (https://softuni.bg)  
+
+**Part 1 : [MySQL - January 2020](/MySQL)  
+Part 2 : [Spring Data - February 2020](/Spring_Data)**
 
 ### MySQL - January 2020
 
