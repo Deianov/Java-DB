@@ -1,53 +1,54 @@
 ## Java-DB
-Java DB Fundamentals module. January 2020 Software University (https://softuni.bg)<p>
-[MySQL - January 2020](https://github.com/Deianov/Java-DB/tree/master/MySQL)<p>
-Spring Data - February 2020
+Java DB Fundamentals module. January 2020 Software University (https://softuni.bg)  
+[MySQL - January 2020](/MySQL)  
+[Spring Data - February 2020](/Spring_Data)
 
 ### MySQL - January 2020
+
 ###### Course Topics:
 
-Data Definition and Datatypes [Lab](MySQL/01.MySQL-Data-Definition-And-Datatypes-Lab.sql) | [Exercises](MySQL/01.MySQL-Data-Definition-And-Datatypes-Exercises.sql)
+Data Definition and Datatypes, Lab | [Exercises](MySQL/01.MySQL-Data-Definition-And-Datatypes-Exercises.sql)
 + Structured Query Language
 + Basic SQL Queries
 + Data Types in MySQL Server
 + Data Management
 + Table Customization
 
-[Basic CRUD](MySQL/02.MySQL-Basic-CRUD-Exercises.sql)
+Basic CRUD, [Lab](MySQL/02.MySQL-Basic-CRUD-Lab.sql) | [Exercises](MySQL/02.MySQL-Basic-CRUD-Exercises.sql)
 + Query Basics 
 + Retrieving Data
 + Writing Data in Tables
 + Modifying Existing Records
 
-[Built-in Functions](MySQL/)
+Built-in Functions, [Lab](MySQL/03.MySQL-Built-in-Functions-Lab.sql) | [Exercises](MySQL/03.MySQL-Built-in-Functions-Exercises.sql)
 + Functions in MySQL Server
 + String Functions
 + Arithmetical Operators and Numeric Functions
 + Date Functions
 + Wildcards
 
-[Data Aggregation](MySQL/)
+Data Aggregation, [Lab](MySQL/04.MySQL-Data-Agregation-Lab.sql) | [Exercises](MySQL/04.MySQL-Data-Agregation-Exercises.sql)
 + Grouping – consolidating data based on criteria
 + Aggregate Function – COUNT, SUM, MAX, MIN, AVG …
 + Having – using predicates while grouping
 
-[Table Relations](MySQL/)
+Table Relations, [Lab](MySQL/05.MySQL-Table-Relations-Lab.sql) | [Exercises](MySQL/05.MySQL-Table-Relations-Exercises.sql)
 + Database design
 + Table Relation
 + Retrieving Related Data
 + Cascade Operations
 + E/R Diagrams
 
-[Subqueries and JOINs](MySQL/)
+Subqueries and JOINs, [Lab](MySQL/06.MySQL-Joins-Subqueries-and-Indices-Lab.sql) | [Exercises](MySQL/06.MySQL-Joins-Subqueries-and-Indices-Exercises.sql)
 + JOINS – Gathering Data From Multiple Tables
 + Subqueries – Query Manipulation on Multiple Levels
 + Indices – Clustered and Non-Clustered Indices
 
-[Database Programmability and Transactions](MySQL/)
+Database Programmability and Transactions, [Lab](MySQL/07.MySQL-Database-Programmability-Lab.sql) | [Exercises](MySQL/07.MySQL-Database-Programmability-Exercises.sql)
 + User-Defined Functions
 + Stored Procedures
 + Transactions
 + Triggers
 
-[Exam preparation](MySQL/exam_preparation)<p>
+[Exam preparation](MySQL/exam_preparation)  
 Exam
