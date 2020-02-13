@@ -2,7 +2,7 @@
 January 2020 Software University (https://softuni.bg)  
 
 **Part 1 : [MySQL - January 2020](/MySQL)  
-Part 2 : [Spring Data - February 2020](/Spring_Data)**
+Part 2 : [Databases Advanced - February 2020](/Databases_Advanced)**
 
 ### MySQL - January 2020
 
