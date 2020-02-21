@@ -29,7 +29,6 @@ public class EntityManager<E> implements DbContext<E> {
         this.connection = connection;
         this.clazz = clazz;
         this.setTableName();
-        this.getTableData();
 
         if (this.isTableExist()){
             this.checkIfFieldsExistInDatabase();
