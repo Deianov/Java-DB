@@ -19,7 +19,7 @@ public class Engine implements Runnable {
 
     @Override
     public void run() {
-        //  Enter Task number -> First run, next runs Ctrl+F5 //
+        //  Enter Task number -> //
         int currentTask = 2
                 ;
 
@@ -74,8 +74,11 @@ public class Engine implements Runnable {
     }
 
     private void removeObjectsEx(){
+        int TOWN_NAME_LENGTH = 5;
+
         List<Town> townsDetach = entityManager
-                .createQuery("SELECT t FROM Town t WHERE length(t.name) > 5", Town.class)
+                .createQuery("SELECT t FROM Town t WHERE length(t.name) > :length", Town.class)
+                .setParameter("length", TOWN_NAME_LENGTH)
                 .getResultList();
 
         entityManager.getTransaction().begin();
@@ -91,6 +94,7 @@ public class Engine implements Runnable {
 
         entityManager.flush();
         entityManager.getTransaction().commit();
+        System.out.println("Done.");
     }
 
     private void containsEmployeeEx(){
@@ -111,8 +115,11 @@ public class Engine implements Runnable {
     }
 
     private void employeesWithSalaryOver50000Ex(){
+        BigDecimal MIN_SALARY = new BigDecimal(50000);
+
         entityManager
-                .createQuery("SELECT e FROM Employee  e WHERE e.salary>50000", Employee.class)
+                .createQuery("SELECT e FROM Employee  e WHERE e.salary>:min", Employee.class)
+                .setParameter("min", MIN_SALARY)
                 .getResultList()
                 .forEach(employee -> System.out.println(employee.getFirstName()));
     }
@@ -242,7 +249,7 @@ public class Engine implements Runnable {
                     .forEach(project ->
                             System.out.printf(
                                     "Project name: %s%n"
-                                            +"\tProject Description: %s%n"
+                                            +"\tProject Description: %.36s...%n"
                                             +"\tProject Start Date:%s%n"
                                             +"\tProject End Date: %s%n",
                                     project.getName(),
