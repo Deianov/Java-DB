@@ -264,16 +264,19 @@ public class Engine implements Runnable {
     }
 
     private void increaseSalariesEx(){
-        List<String> DEPARTMENTS =
-                Arrays.asList("Engineering", "Tool Design", "Marketing or Information Services");
+        List<String> DEPARTMENTS = Arrays.asList("Engineering", "Tool Design");
+        String likePattern1 = "%Marketing%";
+        String likePattern2 = "%Information Services%";
 
         BigDecimal MULTIPLICAND = new BigDecimal("1.12");
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
         try {
             List<Employee> employees = entityManager
-                    .createQuery("select e from Employee e where e.department.name in(:departments)", Employee.class)
+                    .createQuery("select e from Employee e where e.department.name in(:departments) or e.department.name like :pattern1 or e.department.name like :pattern2", Employee.class)
                     .setParameter("departments", DEPARTMENTS)
+                    .setParameter("pattern1", likePattern1)
+                    .setParameter("pattern2", likePattern2)
                     .getResultList();
 
             entityManager.getTransaction().begin();
