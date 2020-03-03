@@ -13,8 +13,15 @@ public class App {
     /*
     1.) Use import Project
     2.) Change persistence.xml -> user, password
-    3.) Test the first task
-    4.) entities -> right click -> Show in Explorer -> zip, delete, unzip...
+    3.) Exclude all packages in entities, without the one you want to test
+            Package -> right click -> Mark Directory as -> Excluded | Cancel exclusion
+    4.) Run the task
+
+
+    PersistenceUnit.hospital, un/comment:
+        - A) Engine -> import entities.hospital.*;
+        - B) Engine -> run
+        - C) Engine -> methods
     */
 
     public static void main(String[] args) {
