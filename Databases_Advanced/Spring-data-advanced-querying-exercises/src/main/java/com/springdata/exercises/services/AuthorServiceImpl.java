@@ -1,11 +1,9 @@
 package com.springdata.exercises.services;
 
-import com.springdata.exercises.entities.Author;
 import com.springdata.exercises.repositories.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -18,19 +16,20 @@ public class AuthorServiceImpl implements AuthorService {
         this.authorRepository = authorRepository;
     }
 
-    @Override
-    public long getAllAuthorsCount() {
-        return authorRepository.count();
+
+    public String[] resultTask6(String input){
+        return
+        authorRepository
+                .findAllByFirstNameLike("%" + input)
+                .stream()
+                .map(author -> String.format("%s %s",
+                        author.getFirstName(),
+                        author.getLastName())
+                )
+                .toArray(String[]::new);
     }
 
-    @Override
-    public Author findAuthorById(Long id) {
-        return authorRepository.getOne(id);
+    public String[] resultTask10(){
+        return authorRepository.findNumberOfBookCopiesByAuthor();
     }
-
-    @Override
-    public List<Author> getAllAuthorsWithFirstNameLike(String firstName) {
-        return authorRepository.findAllByFirstNameLike(firstName);
-    }
-
 }

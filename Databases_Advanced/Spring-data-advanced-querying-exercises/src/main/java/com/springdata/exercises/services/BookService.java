@@ -1,19 +1,20 @@
 package com.springdata.exercises.services;
 
-import com.springdata.exercises.constants.AgeRestriction;
-import com.springdata.exercises.entities.Book;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
+import java.time.format.DateTimeFormatter;
 
 public interface BookService {
-    List<Book> getAllBooksAfter(LocalDate releaseDate);
-    List<Book> getAllBooksBefore(LocalDate releaseDate);
-    List<Book> getAllBooksAgeRestriction(AgeRestriction ageRestriction);
-    List<Book> getAllBooksWithCopiesLessThan(int copies);
-    List<Book> getAllBooksWithPriceNotBetweenExclusive(BigDecimal lowerThan, BigDecimal higherThan);
-    List<Book> getAllBooksNotReleasedBetweenDates(LocalDate before, LocalDate after);
-
-    List<Book> getBooksByAuthorsLastNameLike(String lastName);
+    String[] resultTask1(String input);
+    String[] resultTask2(int maxCopies);
+    String[] resultTask3(BigDecimal lowerThan, BigDecimal higherThan);
+    String[] resultTask4(LocalDate before, LocalDate after);
+    String[] resultTask5(LocalDate releaseDate);
+    String[] resultTask7(String input);
+    String[] resultTask8(String input);
+    String resultTask9(int minLength);
+    String resultTask11(String title);
+    String resultTask12(LocalDate releaseDate, int copiesToAdd, DateTimeFormatter formatter);
+    String resultTask13(int minCopies);
+    String resultTask14(String firstName, String lastName);
 }

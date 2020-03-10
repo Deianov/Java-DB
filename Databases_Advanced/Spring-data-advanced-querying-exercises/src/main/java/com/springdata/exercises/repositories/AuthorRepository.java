@@ -10,11 +10,15 @@ import java.util.List;
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
-    // Java Persistence Query Language
-    @Query("select a from Author a order by a.books.size desc")
-    List<Author> findAllAuthorByCountOfBook();
-    Author findAuthorByFirstNameAndLastName(String firstName, String lastName);
-
-
+    // Query creation from method names
     List<Author> findAllByFirstNameLike(String firstName);
+
+
+    @Query("select concat(a.firstName, ' ', a.lastName, ' - ', sum(b.copies)) " +
+            "from Author a " +
+            "join a.books b " +
+            "group by a.id " +
+            "order by sum(b.copies) desc "
+    )
+    String[] findNumberOfBookCopiesByAuthor();
 }
