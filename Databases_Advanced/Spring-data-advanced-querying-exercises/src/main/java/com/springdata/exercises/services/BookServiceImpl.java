@@ -1,9 +1,9 @@
 package com.springdata.exercises.services;
 
 
-import com.springdata.exercises.constants.AgeRestriction;
+import com.springdata.exercises.entities.enums.AgeRestriction;
 import com.springdata.exercises.entities.Book;
-import com.springdata.exercises.entities.ReducedBook;
+import com.springdata.exercises.entities.dto.ReducedBook;
 import com.springdata.exercises.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -115,7 +115,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public String resultTask11(String title) {
-        ReducedBook book = bookRepository.getBookByTitle(title);
+        ReducedBook book = bookRepository.getBookByTitle(title).orElse(null);
         return book == null ? "Not found book." : book.toString();
     }
 

@@ -1,4 +1,4 @@
-package com.springdata.exercises.constants;
+package com.springdata.exercises.entities.enums;
 
 public enum AgeRestriction {
     MINOR,

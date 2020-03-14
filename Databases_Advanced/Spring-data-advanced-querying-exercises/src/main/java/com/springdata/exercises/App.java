@@ -1,38 +1,37 @@
-package com.springdata.exercises.controllers;
+package com.springdata.exercises;
 
 import com.springdata.exercises.services.AuthorService;
 import com.springdata.exercises.services.BookService;
-import com.springdata.exercises.services.CategoryService;
 import com.springdata.exercises.services.DatabaseService;
 import com.springdata.exercises.utils.UserInput;
 import com.springdata.exercises.utils.UserOutput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-@Controller
-public class AppController implements CommandLineRunner {
+@Component
+public class App implements CommandLineRunner {
 
-    private final CategoryService categoryService;
     private final AuthorService authorService;
     private final BookService bookService;
     private final DatabaseService databaseService;
+
     private final UserInput userInput;
     private final UserOutput userOutput;
 
     @Autowired
-    public AppController(CategoryService categoryService, AuthorService authorService, BookService bookService, DatabaseService databaseService) {
-        this.categoryService = categoryService;
+    public App(AuthorService authorService, BookService bookService, DatabaseService databaseService, UserInput userInput, UserOutput userOutput) {
         this.authorService = authorService;
         this.bookService = bookService;
         this.databaseService = databaseService;
-        userInput = new UserInput();
-        userOutput = new UserOutput();
+
+        this.userInput = userInput;
+        this.userOutput = userOutput;
     }
 
     @Override
@@ -41,8 +40,6 @@ public class AppController implements CommandLineRunner {
         // seed data
         databaseService.seed();
 
-        userOutput.print("***");
-        userOutput.print("***");
         userOutput.print("***");
         userOutput.print("Exercises: Spring Data Advanced Quering");
         userOutput.print("init database...");
@@ -55,7 +52,7 @@ public class AppController implements CommandLineRunner {
                 String number = userInput.get("Enter query number [1-14] | Exit(0) |", String.valueOf(queryNumber));
                 queryNumber = Integer.parseInt(number);
 
-                if (queryNumber > 0 && queryNumber < 15) {
+                if (queryNumber >= 0 && queryNumber < 15) {
                     switch (queryNumber){
                         case 1 : printTask1(); break;
                         case 2 : printTask2(); break;

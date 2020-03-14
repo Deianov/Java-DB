@@ -1,7 +1,7 @@
-package com.springdata.exercises.entities;
+package com.springdata.exercises.entities.dto;
 
-import com.springdata.exercises.constants.AgeRestriction;
-import com.springdata.exercises.constants.EditionType;
+import com.springdata.exercises.entities.enums.AgeRestriction;
+import com.springdata.exercises.entities.enums.EditionType;
 
 import java.math.BigDecimal;
 

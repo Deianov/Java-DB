@@ -1,8 +1,8 @@
 package com.springdata.exercises.repositories;
 
-import com.springdata.exercises.constants.AgeRestriction;
+import com.springdata.exercises.entities.enums.AgeRestriction;
 import com.springdata.exercises.entities.Book;
-import com.springdata.exercises.entities.ReducedBook;
+import com.springdata.exercises.entities.dto.ReducedBook;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
@@ -40,7 +41,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     int getCountOfBooksWithTitleLengthLongerThan(int length);
 
     // Data Transfer Object ?
-    ReducedBook getBookByTitle(String title);
+    Optional<ReducedBook> getBookByTitle(String title);
 
     @Modifying
     @Transactional

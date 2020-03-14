@@ -1,7 +1,7 @@
 package com.springdata.exercises.services;
 
-import com.springdata.exercises.constants.AgeRestriction;
-import com.springdata.exercises.constants.EditionType;
+import com.springdata.exercises.entities.enums.AgeRestriction;
+import com.springdata.exercises.entities.enums.EditionType;
 import com.springdata.exercises.constants.GlobalConstants;
 import com.springdata.exercises.entities.Author;
 import com.springdata.exercises.entities.Book;
@@ -58,8 +58,12 @@ public class DatabaseServiceImpl implements DatabaseService {
         fileUtil.readFileContent(GlobalConstants.FILE_PATH_AUTHORS)
                 .forEach(r -> {
                     String[] params = r.split("\\s+");
-                    Author author = new Author(params[0], params[1]);
-                    authorRepository.saveAndFlush(author);
+                    String firstName = params[0];
+                    String lastName = params[1];
+
+                    if (this.authorRepository.findAuthorByFirstNameAndLastName(firstName, lastName).isEmpty()){
+                        authorRepository.saveAndFlush(new Author(firstName, lastName));
+                    }
                 });
     }
 
@@ -108,9 +112,11 @@ public class DatabaseServiceImpl implements DatabaseService {
             return;
         }
         fileUtil.readFileContent(GlobalConstants.FILE_PATH_CATEGORIES)
-                .forEach(r ->
-                        categoryRepository.saveAndFlush(new Category(r))
-                );
+                .forEach(name -> {
+                    if (categoryRepository.getByName(name).isEmpty()){
+                        categoryRepository.saveAndFlush(new Category(name));
+                    }
+                });
     }
 
     private String getTitle(String[] params) {
