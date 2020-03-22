@@ -15,8 +15,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 //            "where p.buyer is not null "+
 //            "group by u.id"
 //    )
+    // query 2 && 4
     @Query(
-            "select u from User u where u.sold.size > 0 "+
+            "select u from User u where size(u.sold) > 0 "+
             "order by u.lastName, u.firstName"
     )
     List<User> findAllUsersWithSoldProducts();

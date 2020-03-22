@@ -12,11 +12,12 @@ import java.util.List;
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     boolean existsByName(String name);
 
+    // query 3
     @Query("select new com.productsshop.model.dtos.query3.CategoryProductsModel("+
-                  " c.name, c.products.size, avg(p.price), sum(p.price)) from Category c "+
+                  " c.name, size(c.products), avg(p.price), sum(p.price)) from Category c "+
                   "join c.products p "+
                   "group by c.id "+
-                  "order by c.products.size desc"
+                  "order by size(c.products) desc"
     )
     List<CategoryProductsModel> findAllCategoriesByCountAndPrices();
 }

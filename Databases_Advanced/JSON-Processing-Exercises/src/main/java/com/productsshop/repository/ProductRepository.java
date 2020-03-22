@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
+    // query 1
     List<Product> findAllByPriceBetweenAndBuyerIsNull(BigDecimal from, BigDecimal to);
 }

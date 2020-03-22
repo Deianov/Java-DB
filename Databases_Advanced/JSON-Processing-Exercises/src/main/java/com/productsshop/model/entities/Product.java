@@ -3,11 +3,7 @@ package com.productsshop.model.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.Objects;
 import java.util.Set;
-
-import static javax.persistence.CascadeType.*;
-import static javax.persistence.FetchType.*;
 
 @Entity
 @Table(name = "products")

@@ -12,7 +12,7 @@
     <artifactId>productsshop</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>productsshop</name>
-    <description>JSON Processing exercises</description>
+    <description>Exercises: JSON Processing</description>
 
     <properties>
         <java.version>12</java.version>
@@ -24,33 +24,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>12</source>
-                    <target>12</target>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
+
+<!--    Spring: Spring Boot DevTools, Spring Data JPA, MySQL Driver -->
+
     <dependencies>
-
-<!--    Spring: Spring Boot DevTools, Spring Web, Spring Data JPA, MySQL Driver, Spring Boot Actuator -->
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -74,7 +59,7 @@
             </exclusions>
         </dependency>
 
-<!-- Serialisation by GSON to JSON                          -->
+        <!-- Serialisation by GSON to JSON                          -->
 
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -82,7 +67,7 @@
             <version>2.8.5</version>
         </dependency>
 
-<!-- Mapping to Dtos                                    -->
+        <!-- Mapping to Dtos                                    -->
 
         <dependency>
             <groupId>org.modelmapper</groupId>
@@ -90,7 +75,7 @@
             <version>2.3.6</version>
         </dependency>
 
-<!-- Validation                                         -->
+        <!-- Validation                                         -->
 
         <dependency>
             <groupId>org.hibernate.validator</groupId>
@@ -107,6 +92,5 @@
             <artifactId>javax.el</artifactId>
             <version>2.2.6</version>
         </dependency>
-
     </dependencies>
 </project>

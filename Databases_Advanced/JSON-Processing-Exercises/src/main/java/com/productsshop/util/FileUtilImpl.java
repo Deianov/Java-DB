@@ -2,10 +2,7 @@ package com.productsshop.util;
 
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,12 +26,12 @@ public class FileUtilImpl implements FileUtil {
     @Override
     public void write(String content, String filePath) throws IOException {
         Path path = Paths.get(filePath);
-        File file = path.toFile();
-
-        if (!file.exists()){
-            boolean mkdirs = file.getParentFile().mkdirs();
-            boolean newFile = file.createNewFile();
-        }
+//        File file = path.toFile();
+//
+//        if (!file.exists()){
+//            boolean mkdirs = file.getParentFile().mkdirs();
+//            boolean newFile = file.createNewFile();
+//        }
 
         Files.write(path, Collections.singleton(content), StandardCharsets.UTF_8);
     }
