@@ -14,10 +14,10 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     // query 3
     @Query("select new com.productsshop.model.dtos.query3.CategoryProductsModel("+
-                  " c.name, size(c.products), avg(p.price), sum(p.price)) from Category c "+
+                  " c.name, c.products.size, avg(p.price), sum(p.price)) from Category c "+
                   "join c.products p "+
                   "group by c.id "+
-                  "order by size(c.products) desc"
+                  "order by c.products.size desc"
     )
     List<CategoryProductsModel> findAllCategoriesByCountAndPrices();
 }
