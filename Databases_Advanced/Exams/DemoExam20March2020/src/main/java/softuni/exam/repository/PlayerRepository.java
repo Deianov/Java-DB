@@ -14,4 +14,6 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
     Optional<Player> findByFirstNameAndLastName(String firstName, String lastName);
 
     List<Player> findAllBySalaryGreaterThanOrderBySalaryDesc(BigDecimal salary);
+
+    List<Player> findAllByTeamName(String name);
 }

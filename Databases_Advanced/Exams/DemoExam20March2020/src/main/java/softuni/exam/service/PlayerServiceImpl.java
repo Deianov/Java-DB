@@ -145,10 +145,7 @@ public class PlayerServiceImpl implements PlayerService {
                 .append(String.format("Team: %s", team.getName()))
                 .append(System.lineSeparator());
 
-
-        playerRepository.findAll()
-                .stream()
-                .filter(player -> player.getTeam() == team)
+        playerRepository.findAllByTeamName(team.getName())
                 .forEach(player -> result
                         .append(String.format(PLAYER_BY_NUMBER_FORMAT,
                                 player.getFirstName(),
@@ -157,7 +154,6 @@ public class PlayerServiceImpl implements PlayerService {
                                 player.getNumber()))
                         .append(System.lineSeparator())
                 );
-
         return result.toString();
     }
 }
