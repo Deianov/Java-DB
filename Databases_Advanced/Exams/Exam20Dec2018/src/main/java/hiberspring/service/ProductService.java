@@ -4,6 +4,7 @@ import hiberspring.domain.entities.Product;
 import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -15,5 +16,5 @@ public interface ProductService {
 
     String readProductsXmlFile() throws IOException;
 
-    String importProducts() throws JAXBException, IOException;
+    String importProducts() throws JAXBException, FileNotFoundException;
 }

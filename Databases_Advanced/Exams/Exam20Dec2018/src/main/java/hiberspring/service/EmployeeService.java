@@ -3,6 +3,7 @@ package hiberspring.service;
 import hiberspring.domain.entities.Employee;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -13,7 +14,7 @@ public interface EmployeeService {
 
    String readEmployeesXmlFile() throws IOException;
 
-   String importEmployees() throws JAXBException, IOException;
+   String importEmployees() throws JAXBException, FileNotFoundException;
 
    String exportProductiveEmployees();
 }

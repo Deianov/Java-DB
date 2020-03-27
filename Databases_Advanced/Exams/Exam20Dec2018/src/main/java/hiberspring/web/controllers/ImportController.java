@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 @Controller
@@ -58,7 +59,7 @@ public class ImportController extends BaseController {
     }
 
     @PostMapping("/towns")
-    public ModelAndView importTownsConfirm(@RequestParam(name = "towns") String towns) throws IOException {
+    public ModelAndView importTownsConfirm(@RequestParam(name = "towns") String towns) throws FileNotFoundException {
         System.out.println(this.townService.importTowns(towns));
 
         return super.redirect("/import/json");
@@ -70,7 +71,7 @@ public class ImportController extends BaseController {
     }
 
     @PostMapping("/branches")
-    public ModelAndView importBranchesConfirm(@RequestParam(name = "branches") String branches) throws IOException {
+    public ModelAndView importBranchesConfirm(@RequestParam(name = "branches") String branches) throws FileNotFoundException {
         System.out.println(this.branchService.importBranches(branches));
 
         return super.redirect("/import/json");
@@ -82,7 +83,7 @@ public class ImportController extends BaseController {
     }
 
     @PostMapping("/employee-cards")
-    public ModelAndView importEmployeeCardsConfirm(@RequestParam(name = "employeeCards") String employeeCards) throws IOException {
+    public ModelAndView importEmployeeCardsConfirm(@RequestParam(name = "employeeCards") String employeeCards) throws FileNotFoundException {
         System.out.println(this.employeeCardService.importEmployeeCards(employeeCards));
 
         return super.redirect("/import/json");
@@ -94,7 +95,7 @@ public class ImportController extends BaseController {
     }
 
     @PostMapping("/products")
-    public ModelAndView importProductsConfirm() throws JAXBException, IOException {
+    public ModelAndView importProductsConfirm() throws JAXBException, FileNotFoundException {
         System.out.println(this.productService.importProducts());
 
         return super.redirect("/import/xml");
@@ -106,7 +107,7 @@ public class ImportController extends BaseController {
     }
 
     @PostMapping("/employees")
-    public ModelAndView importEmployeesConfirm() throws JAXBException, IOException {
+    public ModelAndView importEmployeesConfirm() throws JAXBException, FileNotFoundException {
         System.out.println(this.employeeService.importEmployees());
 
         return super.redirect("/import/xml");

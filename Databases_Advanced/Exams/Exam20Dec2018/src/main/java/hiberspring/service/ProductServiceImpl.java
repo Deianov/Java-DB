@@ -1,6 +1,6 @@
 package hiberspring.service;
 
-import hiberspring.constant.Constants;
+import hiberspring.constant.GlobalConstants;
 import hiberspring.domain.dtos.ProductSeedDto;
 import hiberspring.domain.dtos.ProductSeedRootDto;
 import hiberspring.domain.entities.Branch;
@@ -14,11 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import static hiberspring.constant.Constants.*;
+import static hiberspring.constant.GlobalConstants.*;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -51,15 +52,15 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public String readProductsXmlFile() throws IOException {
-        return FileUtil.read(Constants.FILE_PRODUCTS);
+        return FileUtil.read(GlobalConstants.FILE_PRODUCTS);
     }
 
     @Override
-    public String importProducts() throws JAXBException, IOException {
+    public String importProducts() throws JAXBException, FileNotFoundException {
         StringBuilder result = new StringBuilder();
 
         ProductSeedRootDto rootDto = xmlParser
-                .unmarshalFromFile(FILE_PRODUCTS, ProductSeedRootDto.class);
+                .parseXml(ProductSeedRootDto.class, FILE_PRODUCTS);
 
         if(rootDto == null){
             return (NOT_FOUND);

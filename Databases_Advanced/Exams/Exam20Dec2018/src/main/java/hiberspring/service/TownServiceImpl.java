@@ -1,6 +1,5 @@
 package hiberspring.service;
 
-import hiberspring.constant.Constants;
 import hiberspring.domain.dtos.TownSeedDto;
 import hiberspring.domain.entities.Town;
 import hiberspring.repository.TownRepository;
@@ -11,10 +10,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
-import static hiberspring.constant.Constants.*;
+import static hiberspring.constant.GlobalConstants.*;
 
 @Service
 public class TownServiceImpl implements TownService {
@@ -49,7 +49,7 @@ public class TownServiceImpl implements TownService {
     }
 
     @Override
-    public String importTowns(String townsFileContent) throws IOException {
+    public String importTowns(String townsFileContent) throws FileNotFoundException {
         StringBuilder result = new StringBuilder();
 
         TownSeedDto[] dtos = jsonParser

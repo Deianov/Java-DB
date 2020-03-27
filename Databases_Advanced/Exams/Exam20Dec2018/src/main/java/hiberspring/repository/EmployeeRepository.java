@@ -15,13 +15,17 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     boolean existsEmployeeByCard(EmployeeCard card);
 
-    @Query(value =
-            "select * from employees e " +
-            "right join products p on e.branch_id = p.branch_id " +
-            "group by e.id " +
-            "having e.id is not null " +
-            "order by e.first_name, e.last_name, char_length(e.position) desc",
-            nativeQuery = true
+//    @Query(value =
+//            "select * from employees e " +
+//            "right join products p on e.branch_id = p.branch_id " +
+//            "group by e.id " +
+//            "having e.id is not null " +
+//            "order by e.first_name, e.last_name, char_length(e.position) desc",
+//            nativeQuery = true
+//    )
+    @Query("select e from Employee e where e.branch.products.size > 0 "+
+            "order by concat(e.firstName, ' ', e.lastName), length(e.position) desc"
+
     )
     List<Employee> getAllSortedByFullNameAndPositionLength();
 }

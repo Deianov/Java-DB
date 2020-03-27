@@ -1,6 +1,7 @@
 package hiberspring.domain.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "branches")
@@ -8,6 +9,7 @@ public class Branch extends BaseEntity{
 
     private String name;
     private Town town;
+    private Set<Product> products;
 
     public Branch() { }
 
@@ -27,5 +29,14 @@ public class Branch extends BaseEntity{
 
     public void setTown(Town town) {
         this.town = town;
+    }
+
+    @OneToMany(mappedBy = "branch")
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 }

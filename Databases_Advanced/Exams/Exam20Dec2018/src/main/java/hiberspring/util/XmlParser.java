@@ -1,11 +1,9 @@
 package hiberspring.util;
 
-
 import javax.xml.bind.JAXBException;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public interface XmlParser {
-    <T> T unmarshalFromFile(String path, Class<T> tClass) throws IOException, JAXBException;
 
-    <T> void marshalToFile(T obj, String path) throws IOException, JAXBException;
+    <T> T parseXml(Class<T> objectClass, String filePath) throws JAXBException, FileNotFoundException;
 }

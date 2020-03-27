@@ -13,25 +13,19 @@ import java.nio.charset.StandardCharsets;
 public class XmlParserImpl implements XmlParser {
 
     @Override
-    @SuppressWarnings("unchecked")
-    public <T> T unmarshalFromFile(String filePath, Class<T> tClass) throws IOException, JAXBException {
+    public <T> T parseXml(Class<T> objectClass, String filePath) throws JAXBException, FileNotFoundException {
         try (final InputStream inputStream = new FileInputStream(filePath))
         {
-            JAXBContext jaxbContext = JAXBContext.newInstance(tClass);
+            JAXBContext jaxbContext = JAXBContext.newInstance(objectClass);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             return (T) unmarshaller.unmarshal(inputStream);
-        }
-    }
 
-    @Override
-    public <T> void marshalToFile(T obj, String path) throws IOException, JAXBException {
-        try (final OutputStream outputStream = new FileOutputStream(path))
-        {
-            JAXBContext jaxbContext = JAXBContext.newInstance(obj.getClass());
-            Marshaller marshaller = jaxbContext.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            marshaller.setProperty(Marshaller.JAXB_ENCODING, StandardCharsets.UTF_8.displayName());
-            marshaller.marshal(obj, outputStream);
+        } catch (FileNotFoundException e){
+            throw e;
+
+        } catch (IOException e){
+            e.printStackTrace();
         }
+        return null;
     }
 }

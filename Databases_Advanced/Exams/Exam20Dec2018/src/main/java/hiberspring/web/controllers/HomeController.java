@@ -26,7 +26,8 @@ public class HomeController extends BaseController {
 
     @GetMapping("/")
     public ModelAndView index() {
-        boolean areImported = this.townService.townsAreImported() &&
+        boolean areImported =
+                this.townService.townsAreImported() &&
                 this.branchService.branchesAreImported() &&
                 this.employeeCardService.employeeCardsAreImported() &&
                 this.productService.productsAreImported() &&

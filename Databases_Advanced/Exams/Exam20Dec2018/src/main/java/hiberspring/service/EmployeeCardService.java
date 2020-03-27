@@ -2,6 +2,7 @@ package hiberspring.service;
 
 import hiberspring.domain.entities.EmployeeCard;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -12,5 +13,5 @@ public interface EmployeeCardService {
 
     String readEmployeeCardsJsonFile() throws IOException;
 
-    String importEmployeeCards(String employeeCardsFileContent) throws IOException;
+    String importEmployeeCards(String employeeCardsFileContent) throws FileNotFoundException;
 }

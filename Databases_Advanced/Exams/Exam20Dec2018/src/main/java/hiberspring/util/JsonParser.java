@@ -1,11 +1,11 @@
 package hiberspring.util;
 
-import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public interface JsonParser {
-    <T> T objectFromFile(String path, Class<T> tClass) throws IOException;
+    <T> T objectFromFile(String path, Class<T> tClass) throws FileNotFoundException;
 
-    <T> void objectToFile(T obj, String path) throws IOException;
+    <T> void objectToFile(T obj, String path) throws FileNotFoundException;
 
     <T> T fromJson(String jsonString, Class<T> tClass);
 

@@ -1,9 +1,10 @@
 package hiberspring.util;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -13,25 +14,39 @@ import java.util.Collections;
 
 @Component
 public class JsonParserImpl implements JsonParser {
-
-    private final Gson gson;
     private static final Charset charset = StandardCharsets.UTF_8;
+    private final Gson gson;
 
-    public JsonParserImpl() {
-        this.gson = new GsonBuilder()
-                .excludeFieldsWithoutExposeAnnotation()
-                .setPrettyPrinting()
-                .create();
+    @Autowired
+    public JsonParserImpl(Gson gson) {
+        this.gson = gson;
     }
 
     @Override
-    public <T> T objectFromFile(String path, Class<T> tClass) throws IOException {
-        return this.fromJson(Files.readString(Path.of(path), charset), tClass);
+    public <T> T objectFromFile(String path, Class<T> tClass) throws FileNotFoundException {
+        try {
+            return this.fromJson(Files.readString(Path.of(path), charset), tClass);
+
+        } catch (FileNotFoundException e) {
+            throw e;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
-    public <T> void objectToFile(T obj, String path) throws IOException {
-        Files.write(Path.of(path), Collections.singleton(toJson(obj)), charset);
+    public <T> void objectToFile(T obj, String path) throws FileNotFoundException {
+        try {
+            Files.write(Path.of(path), Collections.singleton(toJson(obj)), charset);
+
+        } catch (FileNotFoundException e) {
+            throw e;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

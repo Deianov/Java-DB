@@ -2,6 +2,7 @@ package hiberspring.service;
 
 import hiberspring.domain.entities.Branch;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -12,5 +13,5 @@ public interface BranchService {
 
     String readBranchesJsonFile() throws IOException;
 
-    String importBranches(String branchesFileContent) throws IOException;
+    String importBranches(String branchesFileContent) throws FileNotFoundException;
 }

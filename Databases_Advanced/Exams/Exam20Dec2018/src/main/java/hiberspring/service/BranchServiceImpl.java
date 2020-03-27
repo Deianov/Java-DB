@@ -1,6 +1,6 @@
 package hiberspring.service;
 
-import hiberspring.constant.Constants;
+import hiberspring.constant.GlobalConstants;
 import hiberspring.domain.dtos.BranchSeedDto;
 import hiberspring.domain.entities.Branch;
 import hiberspring.domain.entities.Town;
@@ -12,11 +12,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
-import static hiberspring.constant.Constants.*;
-import static hiberspring.constant.Constants.INCORRECT_DATA_MESSAGE;
+import static hiberspring.constant.GlobalConstants.*;
+import static hiberspring.constant.GlobalConstants.INCORRECT_DATA_MESSAGE;
 
 
 @Service
@@ -49,11 +50,11 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public String readBranchesJsonFile() throws IOException {
-        return FileUtil.read(Constants.FILE_BRANCHES);
+        return FileUtil.read(GlobalConstants.FILE_BRANCHES);
     }
 
     @Override
-    public String importBranches(String branchesFileContent) throws IOException {
+    public String importBranches(String branchesFileContent) throws FileNotFoundException {
         StringBuilder result = new StringBuilder();
 
         BranchSeedDto[] dtos = jsonParser

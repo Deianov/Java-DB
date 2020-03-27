@@ -1,6 +1,6 @@
 package hiberspring.service;
 
-import hiberspring.constant.Constants;
+import hiberspring.constant.GlobalConstants;
 import hiberspring.domain.dtos.EmployeeSeedDto;
 import hiberspring.domain.dtos.EmployeeSeedRootDto;
 import hiberspring.domain.entities.Branch;
@@ -16,14 +16,14 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import static hiberspring.constant.Constants.*;
+import static hiberspring.constant.GlobalConstants.*;
 
 @Service
-@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository repository;
@@ -56,15 +56,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public String readEmployeesXmlFile() throws IOException {
-        return FileUtil.read(Constants.FILE_EMPLOYEES);
+        return FileUtil.read(GlobalConstants.FILE_EMPLOYEES);
     }
 
     @Override
-    public String importEmployees() throws JAXBException, IOException {
+    public String importEmployees() throws JAXBException, FileNotFoundException {
         StringBuilder result = new StringBuilder();
 
         EmployeeSeedRootDto rootDto = xmlParser
-                .unmarshalFromFile(FILE_EMPLOYEES, EmployeeSeedRootDto.class);
+                .parseXml(EmployeeSeedRootDto.class, FILE_EMPLOYEES);
 
         if(rootDto == null){
             return (NOT_FOUND);
