@@ -53,7 +53,7 @@ public class ItemServiceImpl implements ItemService {
                 .objectFromFile(Constants.ITEMS_FILE_PATH, ItemSeedDto[].class);
 
         if(dtos == null || dtos.length == 0){
-            return (Constants.NOT_FOUND);
+            return Constants.NOT_FOUND;
         }
 
         for (ItemSeedDto dto : dtos) {

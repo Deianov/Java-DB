@@ -55,7 +55,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .objectFromFile(Constants.EMPLOYEES_FILE_PATH, EmployeeSeedDto[].class);
 
         if(dtos == null || dtos.length == 0){
-            return (Constants.NOT_FOUND);
+            return Constants.NOT_FOUND;
         }
 
         for (EmployeeSeedDto dto : dtos) {
@@ -96,7 +96,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getEmployeesByPositionOrderByNameAscOrdersIdAsc(Position position) {
-        return repository.findEmployeesByPositionOrderByNameAscOrdersIdAsc(position);
+    public List<Employee> getEmployeesByPositionOrderByNameAsc(Position position) {
+        return repository.findEmployeesByPositionOrderByNameAsc(position);
     }
 }

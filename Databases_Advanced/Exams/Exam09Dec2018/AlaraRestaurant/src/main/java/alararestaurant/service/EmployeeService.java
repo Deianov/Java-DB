@@ -16,5 +16,5 @@ public interface EmployeeService {
 
     Optional<Employee> getByName(String name);
 
-    List<Employee> getEmployeesByPositionOrderByNameAscOrdersIdAsc(Position position);
+    List<Employee> getEmployeesByPositionOrderByNameAsc(Position position);
 }

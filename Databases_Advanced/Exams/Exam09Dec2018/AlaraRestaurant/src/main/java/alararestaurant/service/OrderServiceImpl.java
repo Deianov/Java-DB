@@ -16,10 +16,8 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -69,7 +67,7 @@ public class OrderServiceImpl implements OrderService {
         Collection<OrderSeedDto> dtos = rootDto.getOrders();
 
         if(dtos == null || dtos.size() == 0){
-            return (Constants.NOT_FOUND);
+            return Constants.NOT_FOUND;
         }
 
         for (OrderSeedDto dto : dtos) {
@@ -151,7 +149,7 @@ public class OrderServiceImpl implements OrderService {
 
         Position position = positionRepository.findByName(POSITION_NAME).orElse(null);
         List<Employee> employeesWithPosition =
-                employeeService.getEmployeesByPositionOrderByNameAscOrdersIdAsc(position);
+                employeeService.getEmployeesByPositionOrderByNameAsc(position);
 
         if(employeesWithPosition == null){
             return Constants.NOT_FOUND;
@@ -165,7 +163,13 @@ public class OrderServiceImpl implements OrderService {
                     .append("Orders:")
                     .append(System.lineSeparator());
 
-            for (Order order : employee.getOrders()) {
+            List<Order> orders = employee.getOrders()
+                    .stream()
+                    .sorted(Comparator.comparingLong(Order::getId))
+                    .collect(Collectors.toList());
+
+            for (Order order : orders)
+            {
                 result
                         .append("\tCustomer: ")
                         .append(order.getCustomer())
