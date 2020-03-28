@@ -20,6 +20,7 @@ public class XmlParserImpl implements XmlParser {
             JAXBContext jaxbContext = JAXBContext.newInstance(tClass);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             return (T) unmarshaller.unmarshal(inputStream);
+
         }catch (FileNotFoundException e){
             throw e;
         } catch (IOException ex){
@@ -37,6 +38,7 @@ public class XmlParserImpl implements XmlParser {
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             marshaller.setProperty(Marshaller.JAXB_ENCODING, StandardCharsets.UTF_8.displayName());
             marshaller.marshal(obj, outputStream);
+
         } catch (FileNotFoundException e){
             throw e;
         } catch (IOException ex){

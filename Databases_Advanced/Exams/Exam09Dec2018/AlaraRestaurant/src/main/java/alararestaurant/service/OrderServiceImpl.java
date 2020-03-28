@@ -19,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -144,47 +145,51 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public String exportOrdersFinishedByTheBurgerFlippers() {
+        String POSITION_NAME = "Burger Flipper";
+
         StringBuilder result = new StringBuilder();
 
-        Position position = positionRepository.findByName("Burger Flipper").orElse(null);
+        Position position = positionRepository.findByName(POSITION_NAME).orElse(null);
+        List<Employee> employeesWithPosition =
+                employeeService.getEmployeesByPositionOrderByNameAscOrdersIdAsc(position);
 
-        employeeService.getEmployeesByPositionOrderByNameAscOrdersIdAsc(position)
-                .forEach(employee -> {
+        if(employeesWithPosition == null){
+            return Constants.NOT_FOUND;
+        }
+
+        for (Employee employee : employeesWithPosition) {
+            result
+                    .append("Name: ")
+                    .append(employee.getName())
+                    .append(System.lineSeparator())
+                    .append("Orders:")
+                    .append(System.lineSeparator());
+
+            for (Order order : employee.getOrders()) {
+                result
+                        .append("\tCustomer: ")
+                        .append(order.getCustomer())
+                        .append(System.lineSeparator())
+                        .append("\tItems: ")
+                        .append(System.lineSeparator());
+
+                for (OrderItem orderItem : order.getOrderItems()) {
+
+                    Item item = orderItem.getItem();
                     result
-                            .append("Name: ")
-                            .append(employee.getName())
+                            .append("\t\tName: ")
+                            .append(item.getName())
                             .append(System.lineSeparator())
-                            .append("Orders:")
+                            .append("\t\tPrice: ")
+                            .append(item.getPrice())
+                            .append(System.lineSeparator())
+                            .append("\t\tQuantity: ")
+                            .append(orderItem.getQuantity())
+                            .append(System.lineSeparator())
                             .append(System.lineSeparator());
-
-                    for (Order order : employee.getOrders()) {
-
-                        result
-                                .append("\tCustomer: ")
-                                .append(order.getCustomer())
-                                .append(System.lineSeparator())
-                                .append("\tItems: ")
-                                .append(System.lineSeparator());
-
-
-                        for (OrderItem orderItem : order.getOrderItems()) {
-
-                            Item item = orderItem.getItem();
-
-                            result
-                                    .append("\t\tName: ")
-                                    .append(item.getName())
-                                    .append(System.lineSeparator())
-                                    .append("\t\tPrice: ")
-                                    .append(item.getPrice())
-                                    .append(System.lineSeparator())
-                                    .append("\t\tQuantity: ")
-                                    .append(orderItem.getQuantity())
-                                    .append(System.lineSeparator())
-                                    .append(System.lineSeparator());
-                        }
-                    }
-        });
+                }
+            }
+        }
         return result.toString();
     }
 }

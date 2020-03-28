@@ -54,7 +54,7 @@ public class Order extends BaseEntity{
         this.employee = employee;
     }
 
-    @OneToMany(mappedBy = "order", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
     public Collection<OrderItem> getOrderItems() {
         return orderItems;
     }

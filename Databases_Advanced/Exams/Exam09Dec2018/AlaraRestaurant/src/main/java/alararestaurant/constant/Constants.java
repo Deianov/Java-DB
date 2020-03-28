@@ -15,8 +15,6 @@ public final class Constants {
     public final static String INCORRECT_DATA_MESSAGE = "Invalid data format.";
     public final static String SUCCESSFUL_IMPORT_MESSAGE = "Record %s successfully imported.";
 
-
+    // entities
     public final static String ORDER_DATE_FORMAT = "dd/MM/yyyy HH:mm";
-
-    // 23/11/2017 16:25
 }

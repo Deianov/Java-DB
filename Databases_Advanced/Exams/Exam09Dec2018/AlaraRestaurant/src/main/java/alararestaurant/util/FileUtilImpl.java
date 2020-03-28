@@ -17,6 +17,7 @@ public final class FileUtilImpl implements FileUtil{
         String result = null;
         try {
             result = Files.readString(path, charset);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
