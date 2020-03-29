@@ -31,18 +31,14 @@ public class OfferServiceImpl implements OfferService {
     private final ValidationUtil validationUtil;
     private final XmlParser xmlParser;
     private final CarService carService;
-    private final SellerService sellerService;
-    private final PictureService pictureService;
 
     @Autowired
-    public OfferServiceImpl(OfferRepository repository, ModelMapper mapper, ValidationUtil validationUtil, XmlParser xmlParser, CarService carService, SellerService sellerService, PictureService pictureService) {
+    public OfferServiceImpl(OfferRepository repository, ModelMapper mapper, ValidationUtil validationUtil, XmlParser xmlParser, CarService carService) {
         this.repository = repository;
         this.mapper = mapper;
         this.validationUtil = validationUtil;
         this.xmlParser = xmlParser;
         this.carService = carService;
-        this.sellerService = sellerService;
-        this.pictureService = pictureService;
     }
 
     @Override
@@ -82,11 +78,8 @@ public class OfferServiceImpl implements OfferService {
 
                     Offer offer = mapper.map(dto, Offer.class);
 
-                    Car car = carService.getById(dto.getCar().getId()).orElse(null);
-                    Seller seller = sellerService.getById(dto.getSeller().getId()).orElse(null);
-                    offer.setCar(car);
-                    offer.setSeller(seller);
-                    offer.setPictures(pictureService.getPicturesByCar(car));
+                    carService.getById(dto.getSeller().getId())
+                            .ifPresent(car -> offer.setPictures(car.getPictures()));
 
                     repository.saveAndFlush(offer);
 

@@ -97,9 +97,4 @@ public class PictureServiceImpl implements PictureService {
     public Optional<Picture> getByName(String name) {
         return repository.findByName(name);
     }
-
-    @Override
-    public Collection<Picture> getPicturesByCar(Car car) {
-        return repository.findPicturesByCar(car);
-    }
 }

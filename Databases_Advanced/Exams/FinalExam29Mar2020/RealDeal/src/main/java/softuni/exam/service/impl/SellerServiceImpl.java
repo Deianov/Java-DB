@@ -91,9 +91,4 @@ public class SellerServiceImpl implements SellerService {
         }
         return result.toString();
     }
-
-    @Override
-    public Optional<Seller> getById(Long id) {
-        return repository.findById(id);
-    }
 }
