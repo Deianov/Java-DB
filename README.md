@@ -51,5 +51,57 @@ Database Programmability and Transactions, [Lab](MySQL/07.MySQL-Database-Program
 + Transactions
 + Triggers
 
-[Exam preparation](MySQL/exam_preparation)  
-Exam
+[Exam preparation | Exam](MySQL/exams)  
+
+
+### Databases Advanced - February 2020
+
+###### Course Topics:
+
+Introduction to DB Applications, [Lab](Databases_Advanced/JDBC_Introduction)
++ Connecting via JDBC
++ Executing Statements
++ SQL Injection
++ Advanced Concepts
+
+Custom ORM Framework, [Workshop](Databases_Advanced/JDBC_Introduction)
++ Workshop
+	
+Introduction to Hibernate, [Lab XML](Databases_Advanced/Introduction-to-Hibernate) | [Lab JPA](Databases_Advanced/Introduction-to-JPA) | [Exercises](Databases_Advanced/Introduction-to-Hibernate-exercises)
++ Maven
++ Hibernate Framework
++ Java Persistence API
+	
+Hibernate (JPA) Code First Entity Relations, [Lab](Databases_Advanced/Hibernate-Code-First) | [Exercises](Databases_Advanced/Hibernate-Code-First-exercises)
++ Java Persistence API Inheritance
++ Table Relations
+
+Spring Data Introduction, [Lab](Databases_Advanced/Spring-data-intro) | [Exercises](Databases_Advanced/Spring-data-exercises)
++ Spring Data Framework
++ Spring Data Repositories
++ Spring Data Query Creation
++ Spring Data Services
+
+Spring Data Advanced Querying, [Lab](Databases_Advanced/Spring-data-advanced-querying) | [Exercises](Databases_Advanced/Spring-data-advanced-querying-exercises)
++ Query Methods
++ JPQL Advanced Repositories
++ Spring Configuration
+
+Spring Data Auto Mapping Objects, [Lab](Databases_Advanced/Spring-data-auto-mapping-objects) | [Exercises](Databases_Advanced/Spring-data-auto-mapping-objects-exercises)
++ Data Transfer Objects
++ Model Mapping
+
+JSON Processing, [Lab](Databases_Advanced/JSON-Processing) | [Exercises](Databases_Advanced/JSON-Processing-Exercises)
++ Exporting and Importing Data from JSON Format
++ GSON
++ REST client
+
+XML Processing, Lab | [Exercises](Databases_Advanced/XML-Processing-Exercises)
++ Exporting and Importing Data from XML Format
++ XML Processing
++ JAXB
+	
+MVC Project, [Workshop](Databases_Advanced/MVC_Project)
++ Workshop
+
+[Exam Preparations | Exam](Databases_Advanced/Exams)
