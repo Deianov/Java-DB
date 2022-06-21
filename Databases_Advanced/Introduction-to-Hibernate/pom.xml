@@ -17,7 +17,7 @@
         <!-- hibernate -->
         <hibernate.version>5.4.12.Final</hibernate.version>
         <!-- mysql-connector-java (com.mysql.cj.jdbc.Driver)-->
-        <mysql.version>8.0.19</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <jaxb.version>2.2.11</jaxb.version>
     </properties>
 
